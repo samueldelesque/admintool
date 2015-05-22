@@ -1,0 +1,22 @@
+# Global
+.DS_Store
+Thumbs.db
+.svn
+.settings
+.buildpath
+.project
+*.pem
+*.psd
+
+# NPM Builds
+node_modules/
+
+# Sublime Editor
+sftp-config.json
+*.sublime-settings
+*.sublime-workspace
+*.sublime-project
+
+
+# Settings file
+settings.js

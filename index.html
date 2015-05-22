@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Domani" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Domani CMS</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+	<link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/index.css">
+	<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body ng-controller="MainCtrl" class="{{controller}} {{animatingClass}}">
+	<div id="burger" ng-click="toggleMenu()">
+		<span></span><span></span><span></span>
+	</div>
+	<nav>
+		<a href="#/" id="logo"><img src="img/domani.png" alt="Domani CMS"></a>
+		<h1>St Regis Jazz</h1>
+		<div class="links">
+			<ul class="menu">
+				<li ng-repeat="(name, table) in architecture()">
+					<a href="#/edit/{{name}}">{{table.title}}</a>
+				</li>
+				<!-- <li>
+					<a href="#/settings"><i class="glyphicon glyphicon-wrench"></i> Settings</a>
+				</li> -->
+			</ul>
+		</div>
+		<div class="lang-dropdown">
+			<select ng-model="lang" ng-options="lang.name for lang in langs"></select>
+		</div>
+		<div class="toggle-log" ng-class="toggleLogClass()" ng-click="logActive = !logActive">
+			<span ng-show="logActive">hide log <i class="glyphicon glyphicon-chevron-up"></i></span>
+			<span ng-show="!logActive">show log <i class="glyphicon glyphicon-chevron-down"></i></span>
+		</div>
+		<div class="console-log" ng-show="logActive">
+		</div>
+	</nav>
+
+	<main>
+		<div id="notifications" ng-show="hasNotifications()">
+			<div class="msg" ng-repeat="notification in notifications">
+				{{notification.text}}
+			</div>
+		</div>
+		<div ng-view></div>
+	</main>
+	<script src="libs/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	
+	<script src="settings.js"></script>
+	<script src="services/log.js"></script>
+	<script src="services/api.js"></script>
+	<script src="views/table/table.js"></script>
+
+
+	<script src="app.js"></script>
+</body>
+</html>

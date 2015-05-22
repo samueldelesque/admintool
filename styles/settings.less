@@ -1,0 +1,41 @@
+.settings{
+	padding: 20px;
+	.head{
+		h2{
+			color: white;
+			margin: 0;
+			padding: 0;
+			display: inline-block;
+		}
+	}
+	.field{
+		width: 400px;
+		input{
+			width: 100%;
+			margin:10px 0;
+			padding: 14px;
+			color: #bbb;
+			font-size: 24px;
+		}
+	}
+	button{
+		position: relative;
+		top:0;
+		width: 400px;
+		padding: 14px 16px;
+		text-transform: uppercase;
+		box-shadow: 5px 5px #3D293C;
+		transition:all .2s;
+		background: #854689;
+		color: white;
+		border:none;
+		outline: none;
+		&.disabled{
+			color: #B15DB9;
+		}
+		&:not(.disabled):hover{
+			top:1px;
+			background: #753679;
+		}
+	}
+}

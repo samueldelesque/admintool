@@ -1,0 +1,16 @@
+{
+  "name": "DomaniCMS",
+  "version": "0.0.1",
+  "main": "index.html",
+  "dependencies": {
+    "mysql": "~2.6.1"
+  },
+  "window": {
+    "title": "Domani",
+    "frame": true,
+    "toolbar": false,
+    "width": 1200,
+    "height": 700,
+    "resizable": true
+  }
+}

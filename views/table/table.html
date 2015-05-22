@@ -1,0 +1,41 @@
+<div class="table" id="table">
+	<div ng-show="saveMessage.length > 0" class="msg msg-loading">{{saveMessage}}</div>
+	<div class="head">
+		<h2>{{table.title}} ({{total()}})</h2>
+		<button ng-click="save()">Save</button>
+		<button ng-click="add()">Add</button>
+	</div>
+	<table class="attributes">
+		<thead>
+			<tr>
+				<td ng-repeat="(key,row) in table.rows">
+					{{row.title}}
+				</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(id,row) in attributes">
+				<td ng-repeat="(name,val) in row">
+					<input type="text" ng-model="attributes[id][name]" ng-show="name != 'id' && name != 'locale'">
+					<span class="value" ng-show="name == 'id' || name == 'locale'">{{val}}</span>
+				</td>
+				<td>
+					<div class="delete" ng-click="delete(id)"><span></span><span></span></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div ng-show="total() == 0" class="no-results">
+		No items found.
+	</div>
+	<div id="addItem" class="add-item">
+		<div class="field" ng-repeat="(key,row) in table.rows">
+			<input ng-model="newitem[key]" ng-show="key != 'id' && key != 'locale'" placeholder="{{key}}">
+		</div>
+		<button ng-click="addNewItem()">Add</button>
+		<div class="close" ng-click="closeAdd()"><span></span><span></span></div>
+	</div>
+	<div class="json">{{attributesJson()}}</div>
+	<div class="json unchanged">{{originalDataJson()}}</div>
+</div>
